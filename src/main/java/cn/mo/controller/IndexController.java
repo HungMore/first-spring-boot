@@ -17,6 +17,7 @@ public class IndexController {
     @RequestMapping("/")
     public MoResult index(){
         log.error("index-error...");
+        System.out.println("index-error from sout...");
         return MoResult.succeed();
     }
 
