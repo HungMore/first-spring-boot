@@ -2,7 +2,10 @@
 
 <configuration>
 
-    <property name="log.path" value="/home/logs/first-spring-boot/"/>
+    <!--source不能叫logging.path，估计是会冲突的吧。尝试了下叫logging.path，发现这个xml配置都失效了-->
+    <springProperty scope="context" name="logDir" source="logging.dir" defaultValue="/home/logs/first-spring-boot/" />
+
+    <property name="log.path" value="${logDir}"/>
 
     <!-- 日志打印到控制台 -->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
